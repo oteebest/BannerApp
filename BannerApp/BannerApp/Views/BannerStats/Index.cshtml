@@ -1,0 +1,37 @@
+﻿@using Banner.Application.Contracts.Service.BannerStats;
+
+@model List<BannerStatDto>
+
+
+<div style="color:black; font-size:22px;padding-bottom:10px">
+    Banner Summary For:  @DateTimeOffset.Now.ToString("dd-MM-yyyy")
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">BannerId</th>
+            <th scope="col">Title</th>
+            <th scope="col">Image</th>
+            <th scope="col">Date(dd-MM-yyyy)</th>
+            <th scope="col">Hour</th>
+            <th scope="col">Impressions</th>
+            <th scope="col">Clicks</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var stat in Model)
+        {
+            <tr>
+                <th scope="row">@stat.BannerId</th>
+                <td>@stat.Title</td>
+                <td>@stat.ImageUrl</td>
+                <td>@stat.Date.ToString("dd-MM-yyyy")</td>
+                <td>@stat.Hour</td>
+                <td>@stat.Impressions</td>
+                <td>@stat.Clicks</td>
+            </tr>
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,23 @@
+﻿@using Banner.Application.Contracts.Service.Banner;
+@model BannerDto
+
+<img onclick="Click()" src="@Model.ImageUrl" />
+
+<input id="hiddenBannerId" type="hidden" value="@Model.Id" />
+
+<script>
+
+    function Click() {
+        var bannerId = document.querySelector("#hiddenBannerId").value;
+
+        $.ajax({
+            method: "POST",
+            url: "@Url.Action("click","banner")/" + bannerId,
+        })
+        .done(function (data) {
+
+                window.open(data.linkUrl, '_blank');
+        });
+    }
+
+</script>
