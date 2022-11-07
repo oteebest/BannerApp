@@ -7,17 +7,27 @@
 
 <script>
 
+    function gettoken() {
+        var token = '@Html.AntiForgeryToken()';
+        token = $(token).val();
+        return token;
+    }
+
     function Click() {
         var bannerId = document.querySelector("#hiddenBannerId").value;
 
         $.ajax({
             method: "POST",
             url: "@Url.Action("click","banner")/" + bannerId,
+            data: {
+                __RequestVerificationToken: gettoken(),
+            }
         })
         .done(function (data) {
 
                 window.open(data.linkUrl, '_blank');
         });
     }
+
 
 </script>

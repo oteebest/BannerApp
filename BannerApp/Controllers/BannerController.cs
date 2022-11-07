@@ -16,6 +16,7 @@ namespace BannerApp.Controllers
         }
 
         [Route("Banner/Click/{id}")]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Click(Guid id)
         {
             var banner = await _mediator.Send(new BannerClickCommand {  BannerId = id});
