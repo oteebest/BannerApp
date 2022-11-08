@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Banner.EntityFramework.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221102161919_Initial")]
-    partial class Initial
+    [Migration("20221108063714_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -77,22 +77,25 @@ namespace Banner.EntityFramework.Migrations
 
             modelBuilder.Entity("Banner.Domain.Entities.BannerStat", b =>
                 {
-                    b.Property<Guid>("BannerId")
+                    b.Property<Guid?>("BannerId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Clicks")
+                    b.Property<int?>("Clicks")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime?>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("Hour")
+                    b.Property<int?>("Hour")
                         .HasColumnType("int");
 
-                    b.Property<int>("Impressions")
+                    b.Property<int?>("Impressions")
                         .HasColumnType("int");
 
-                    b.ToView("View_BannerStats");
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.ToTable("ViewNameInDatabase", null, t => t.ExcludeFromMigrations());
                 });
 
             modelBuilder.Entity("Banner.Domain.Entities.BannerActivity", b =>

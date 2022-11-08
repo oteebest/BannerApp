@@ -32,7 +32,8 @@ namespace Banner.EntityFramework.Context
         {
             modelBuilder.ApplyConfiguration(new BannerConfiguration());
             modelBuilder.ApplyConfiguration(new BannerActivityConfiguration());
-      
+            modelBuilder.ApplyConfiguration(new BannerStatsConfiguration());
+
             base.OnModelCreating(modelBuilder);
         }
 

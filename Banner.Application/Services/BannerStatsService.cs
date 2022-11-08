@@ -28,7 +28,7 @@ namespace Banner.Application.Services
 
             date.Value = searchDate;
 
-            var bannerStats =  await _dbService.BannerStats.FromSqlRaw($"Exec Getsummary @date",date).ToListAsync();
+            var bannerStats =  await _dbService.BannerStats.FromSqlRaw($"Exec GetBannerStats @date",date).ToListAsync();
 
             return _mapper.Map<List<BannerStatDto>>(bannerStats);
         }

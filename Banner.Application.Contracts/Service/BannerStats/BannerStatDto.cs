@@ -10,7 +10,6 @@ namespace Banner.Application.Contracts.Service.BannerStats
     {
         public Guid BannerId { get; set; }
         public string Title{get; set;}
-        public string ImageUrl { get; set; }
         public DateTime Date { get; set; }
         public int Hour { get; set; }
         public int Impressions { get; set; }

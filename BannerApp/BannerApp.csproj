@@ -17,7 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Banner.Application.Contracts\Banner.Application.Contracts.csproj" />
     <ProjectReference Include="..\Banner.Application\Banner.Application.csproj" />
-    <ProjectReference Include="..\Banner.Domain.Shared\Banner.Domain.Shared.csproj" />
     <ProjectReference Include="..\Banner.EntityFramework\Banner.EntityFramework.csproj" />
   </ItemGroup>
 
